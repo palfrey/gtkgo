@@ -1,0 +1,105 @@
+gtkgo (0.0.10-15) unstable; urgency=low
+
+  * Changed maintainer's mail
+  * Fixed clean rule (Closes: #424391)
+
+ -- Marcela Tiznado <mlt@debian.org>  Sun, 20 May 2007 05:09:46 -0300
+
+gtkgo (0.0.10-14) unstable; urgency=low
+
+  * Moved to debhelper
+  * Resized and added menu icon
+  
+ -- Marcela Tiznado <mtiznado@linux.org.ar>  Thu, 16 Mar 2006 01:11:30 -0300 
+ 
+gtkgo (0.0.10-13) unstable; urgency=low
+
+  * Update to Debian Policy 3.6.2
+  * Moved to gnome-optional sections
+  * Removed libdb3-dev from build depend. Closes #289478
+  * Fixed bad dependency. Closes #337274
+  * Completed debian/copyright
+
+ -- Marcela Tiznado <mtiznado@linux.org.ar>  Fri, 09 Dec 2005 03:10:14 -0300
+
+gtkgo (0.0.10-12) unstable; urgency=low
+
+  * Update to Debian Policy 3.6.1
+  * New mantainer (Closes #166968)
+  * Moved to /usr/games in line with other gnome games
+  
+ -- Marcela Tiznado <mtiznado@linux.org.ar>  Mon, 21 Jun 2004 00:20:28 -0300
+
+gtkgo (0.0.10-11) unstable; urgency=low
+
+  * Changed imlib depends to imlib1 (Closes: #165008)
+
+ -- Corrin Lakeland <lakeland@debian.org>  Thu, 17 Oct 2002 13:30:09 +1300
+
+gtkgo (0.0.10-10) unstable; urgency=low
+
+  * Added go menu hint (Closes 121013)
+
+ -- Corrin Lakeland <lakeland@debian.org>  Fri, 22 Feb 2002 09:27:32 +1300
+
+gtkgo (0.0.10-9) unstable; urgency=low
+
+  * Change maintainer address to my old key so debian accepts the GPG sig :-(
+  * Hopefully soon the new key will be in the keyring
+
+ -- Corrin Lakeland (NLP) <lakeland@penguinpowered.com>  Wed, 30 Jan 2002 18:55:22 +1300
+
+gtkgo (0.0.10-8) unstable; urgency=low
+
+  * Added menu hint (Closes: 121013)
+  * Fixed include file in preperation for gnome 2
+
+ -- Corrin Lakeland <lakeland@acm.org>  Mon, 28 Jan 2002 15:54:58 +1300
+
+gtkgo (0.0.10-7) unstable; urgency=low
+
+  * Fixed build depends now db2 has gone to db3
+
+ -- Corrin Lakeland <lakeland@acm.org>  Mon, 28 Jan 2002 15:24:19 +1300
+
+gtkgo (0.0.10-6) unstable; urgency=low
+
+  * Fixed build depends AGAIN.  At least this was before anyone else noticed.
+
+ -- Corrin Lakeland <lakeland@debian.org>  Wed, 11 Apr 2001 20:11:34 +1200
+
+gtkgo (0.0.10-5) unstable; urgency=low
+
+  * Fixed the build depends.  It should be fairly close to correct now 
+
+ -- Corrin Lakeland <lakeland@debian.org>  Sun,  1 Apr 2001 22:09:03 +1200
+
+gtkgo (0.0.10-4) unstable; urgency=low
+
+  * Fixed man page so whatis can accept it
+
+ -- Corrin Lakeland <lakeland@debian.org>  Tue,  6 Mar 2001 23:16:51 +1300
+
+gtkgo (0.0.10-3) unstable; urgency=low
+
+  * Fixed missing /usr/share files, oops!
+
+ -- Corrin Lakeland <lakeland@debian.org>  Tue,  6 Mar 2001 22:45:53 +1300
+
+gtkgo (0.0.10-2) unstable; urgency=low
+
+  * Fixed known outstanding bugs (build depends and /usr/local/share)
+
+ -- Corrin Lakeland <lakeland@debian.org>  Sun,  4 Mar 2001 08:59:41 +1300
+
+gtkgo (0.0.10-1) unstable; urgency=low
+
+  * Initial release.
+  * This is my first real Debian package.
+  * No source code changes were made but several
+  * modifications were made to the configure scripts:
+  *   .png files are now installed without execute permission
+  *   The binary is now stripped
+  *   configure modified to look in the correct location for gnome includes
+
+ -- Corrin Lakeland <lakeland@debian.org>  Sun, 28 Jan 2001 20:34:37 +1300

@@ -1,0 +1,7 @@
+?package(gtkgo):\
+needs="X11"\
+section="Games/Board"\
+title="gtkgo"\
+hints="Go"\
+command="/usr/games/gtkgo"\
+icon="/usr/share/pixmaps/gtkgoico.xpm"

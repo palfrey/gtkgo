@@ -1,0 +1,18 @@
+Source: gtkgo
+Section: gnome
+Priority: optional
+Build-Depends: libgnome-dev, libzvt-dev, debhelper (>= 4.0.0) 
+Maintainer: Marcela Tiznado <mlt@debian.org>
+Standards-Version: 3.7.2
+
+Package: gtkgo
+Architecture: any
+Depends: ${shlibs:Depends}
+Suggests: gnome-core
+Description: Skinable version of the game "Go"
+ This program is a GTK-based version of the oriental game "Go".
+ You can play go against another player or against a weak
+ computer player. This program's main advantage is a pretty interface.
+ .
+ You can find more info about gtkgo at 
+ http://cvs.gnome.org/bonsai/rview.cgi?dir=gtkgo&rev=&cvsroot=%2Fcvs%2Fgnome

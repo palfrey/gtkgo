@@ -1,0 +1,74 @@
+#!/usr/bin/make -f
+# Sample debian/rules that uses debhelper.
+# This file is public domain software, originally written by Joey Hess. 
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
+CFLAGS +="-O0 -g -Wall -I/usr/lib/gnome-libs/include/ -I/usr/include/gnome-1.0/"
+else
+CFLAGS +="-O2 -g -Wall -I/usr/lib/gnome-libs/include/ -I/usr/include/gnome-1.0/"
+endif
+ifeq (,$(findstring nostrip,$(DEB_BUILD_OPTIONS)))
+INSTALL_PROGRAM += -s
+endif
+
+build: build-stamp
+build-stamp:
+	dh_testdir
+
+	# Add here commands to compile the package.
+	./configure --prefix=/usr --bindir=/usr/games 
+	$(MAKE) CFLAGS=$(CFLAGS)
+	touch build-stamp
+
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp
+	rm -f src/*.o src/gtkgo
+	# Add here commands to clean up after the build process.
+	#-$(MAKE) clean
+	#-$(MAKE) distclean
+
+	dh_clean
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k
+	dh_installdirs
+
+	# Add here commands to install the package into debian/<packagename>
+	$(MAKE) install prefix=$(CURDIR)/debian/gtkgo/usr bindir=$(CURDIR)/debian/gtkgo/usr/games 
+  
+	# Install icon	
+	mkdir -p $(CURDIR)/debian/gtkgo/usr/share/pixmaps/
+	cp $(CURDIR)/debian/gtkgoico.xpm  $(CURDIR)/debian/gtkgo/usr/share/pixmaps
+
+# Build architecture-independent files here.
+binary-indep: build install
+# We have nothing to do by default.
+
+# Build architecture-dependent files here.
+binary-arch: build install
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs ChangeLog
+	dh_installdocs
+	dh_install
+	dh_installmenu
+	dh_installman debian/gtkgo.6
+	dh_link
+	dh_strip
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install

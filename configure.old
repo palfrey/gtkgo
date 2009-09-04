@@ -1,0 +1,65 @@
+dnl Process this file with autoconf to produce a configure script.
+AC_INIT(src/AskSave.c)
+
+dnl Initialize the automake stuff
+AM_INIT_AUTOMAKE(gtkgo, 0.0.8)
+
+dnl Specify a configuration file
+AM_CONFIG_HEADER(config.h)
+
+dnl Checks for programs.
+AC_PROG_AWK
+AC_PROG_CC
+AC_PROG_INSTALL
+AC_PROG_LN_S
+
+missing=""
+
+dnl Checks for libraries, order is significant, first test ends last at linking
+AC_CHECK_LIB(m, pow)
+AC_CHECK_LIB(z, inflate,, missing="${missing} zlib")
+AC_CHECK_LIB(png, png_init_io,, missing="${missing} png")
+AC_CHECK_LIB(gif, DGifOpenFileName,, missing="${missing} gif")
+AC_CHECK_LIB(jpeg, jpeg_read_header,, missing="${missing} jpeg")
+AC_CHECK_LIB(tiff, TIFFOpen,, missing="${missing} tiff")
+
+dnl Lowest required GTK version
+AM_PATH_GTK(1.0.1, , missing="${missing} gtk+")
+
+AC_CHECK_LIB(gdk_imlib,gdk_imlib_load_image,,missing="${missing} imlib",[
+	$GTK_LIBS])
+
+dnl Checks for header files.
+AC_HEADER_STDC
+AC_CHECK_HEADERS(fcntl.h unistd.h)
+
+dnl Checks for typedefs, structures, and compiler characteristics.
+AC_TYPE_SIZE_T
+AC_STRUCT_TM
+
+dnl Checks for library functions.
+AC_CHECK_FUNCS(snprintf)
+
+if test "x${missing}" != x; then
+  echo
+  for missing_pkg in ${missing}; do
+    echo "Can't find libraries (or headers) of \"${missing_pkg}\"."
+    case "$missing_pkg" in
+      gtk+)  echo "  Fetch it from <URL:ftp://ftp.gtk.org/>"
+	;;
+      imlib) echo "  Fetch it from <URL:http://www.labs.redhat.com/imlib/>"
+	;;
+    esac
+  done
+  AC_MSG_ERROR(Can't find all necessary libraries / headers)
+fi
+
+
+AC_OUTPUT(Makefile \
+        computers/Makefile \
+	help/Makefile \
+	mp3/Makefile \
+        pix/Makefile \
+        skins/Makefile \
+	src/Makefile \
+	)
