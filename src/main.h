@@ -21,7 +21,7 @@
 #define MAIN_H                                                                  /* Define MAIN_H                                                             */
                                                                                 /*                                                                           */
 #include <gtk/gtk.h>                                                            /* Include GTK+                                                              */
-#include <gdk_imlib.h>                                                          /* GdkImlibImage, etc.                                                       */
+//#include <gdk_imlib.h>                                                          /* GdkImlibImage, etc.                                                       */
 #include <stdio.h>                                                              /* sprintf, etc.                                                             */
 #include <time.h>                                                               /* time, etc.                                                                */
 #include <string.h>                                                             /* bzero, strerror, etc.                                                     */

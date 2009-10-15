@@ -5,11 +5,6 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
-CFLAGS +="-O0 -g -Wall -I/usr/lib/gnome-libs/include/ -I/usr/include/gnome-1.0/"
-else
-CFLAGS +="-O2 -g -Wall -I/usr/lib/gnome-libs/include/ -I/usr/include/gnome-1.0/"
-endif
 ifeq (,$(findstring nostrip,$(DEB_BUILD_OPTIONS)))
 INSTALL_PROGRAM += -s
 endif
