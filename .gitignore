@@ -1,0 +1,15 @@
+Makefile
+Makefile.in
+.*.swp
+aclocal.m4
+.deps
+autom4te.cache
+config.cache
+config.log
+config.status
+configure
+depcomp
+install-sh
+missing
+omf.make
+xmldocs.make
